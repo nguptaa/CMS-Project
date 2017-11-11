@@ -38,17 +38,31 @@
       //   $cat_id=$row['cat_id'];
       //   $cat_title=$row['cat_title'];
       // }
-      
+
       // echo "<td>$cat_title</td>";
 
       echo "<td>$comment_email </td>";
       echo "<td>$comment_status</td>";
-      echo "<td>Some Title</td>";
+
+      $query="SELECT * FROM posts WHERE post_id=$comment_post_id ";
+      $select_post_id_query=mysqli_query($connection,$query);
+      if(!$select_post_id_query){
+        die("QUERY FAILED" . mysqli_error($connection));
+      }
+      while($row=mysqli_fetch_assoc($select_post_id_query)) {
+        $post_id=$row['post_id'];
+        $post_title=$row['post_title'];
+
+        echo "<td><a href='../post.php?p_id=$post_id'>$post_title</a></td>";
+
+
+      }
+
       echo "<td>$comment_date</td>";
       echo "<td><a href='posts.php?source=edit_post&p_id='>Approve</a></td>";
       echo "<td><a href='posts.php?delete='>Unapprove</a></td>";
       echo "<td><a href='posts.php?source=edit_post&p_id='>Edit</a></td>";
-      echo "<td><a href='posts.php?delete='>Delete</a></td>";
+      echo "<td><a href='comments.php?delete=$comment_id'>Delete</a></td>";
       echo "</tr>";
 
     }
@@ -60,8 +74,8 @@
 
 <?php
 if(isset($_GET['delete'])){
-  $post_id = $_GET['delete'];
-  $query = "DELETE FROM posts WHERE post_id={$post_id} ";
+  $comment_id = $_GET['delete'];
+  $query = "DELETE FROM comments WHERE comment_id={$comment_id} ";
   $delete_query=mysqli_query($connection,$query);
   // header("Location: posts.php");
 }

@@ -3,7 +3,7 @@
 if(isset($_GET['edit_user'])){
   $the_user_id=$_GET['edit_user'];
 
-  $query="SELECT * FROM users WHERE user_id=$the_user_id";
+  $query="SELECT * FROM users WHERE user_id=$the_user_id ";
   $select_users_query=mysqli_query($connection,$query);
 
   while($row=mysqli_fetch_assoc($select_users_query)){
@@ -31,13 +31,21 @@ if(isset($_POST['edit_user'])){
 
   //   move_uploaded_file($post_image_temp, "../images/$post_image ");
 
-  $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password ) ";
-  $query .= "VALUES('$user_firstname', '$user_lastname', '$user_role', '$username', '$user_email', '$user_password' ) ";
+  $query = "UPDATE users SET ";
+  $query .= "user_firstname='{$user_firstname}', ";
+  $query .= "user_lastname='{$user_lastname}', ";
+  $query .= "user_role='{$user_role}', ";
+  $query .= "username='{$username}', ";
+  $query .= "user_email='{$user_email}', ";
+  $query .= "user_password='{$user_password}' ";
+  $query .= "WHERE user_id={$the_user_id} ";
 
-  $create_user_query = mysqli_query($connection, $query);
-  if(!$create_user_query){
+  $edit_user_query=mysqli_query($connection,$query);
+  if(!$edit_user_query){
     die("QUERY FAILED" . mysqli_error($connection));
   }
+
+
 }
 
 ?>

@@ -76,7 +76,7 @@ if(isset($_SESSION['username'])){
             $query .= "username='{$username}', ";
             $query .= "user_email='{$user_email}', ";
             $query .= "user_password='{$user_password}' ";
-            $query .= "WHERE user_id={$the_user_id} ";
+            $query .= "WHERE username='{$username}' ";
 
             $edit_user_query=mysqli_query($connection,$query);
             if(!$edit_user_query){

@@ -22,11 +22,12 @@
           {$cat_title}
           </a></li>";
         }
-        
+
         ?>
         <li>
         <a href="admin">ADMIN</a>
       </li>
+
       <!-- <li>
       <a href="#">Services</a>
     </li>

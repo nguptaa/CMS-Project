@@ -132,9 +132,12 @@
 
 <!-- bar chart -->
 
+<div class="container">
+
 <div class="row">
 
   <script type="text/javascript">
+
   google.charts.load('current', {'packages':['bar']});
   google.charts.setOnLoadCallback(drawChart);
 
@@ -149,8 +152,8 @@
 
     var options = {
       chart: {
-        title: 'Company Performance',
-        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        title: '',
+        subtitle: '',
       }
     };
 
@@ -161,5 +164,7 @@
 
   </script>
 
+  <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
 
+</div>
 </div>

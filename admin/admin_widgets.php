@@ -137,19 +137,19 @@ $query="SELECT * FROM posts WHERE post_status= 'draft' ";
 $select_all_draft_posts=mysqli_query($connection,$query);
 $posts_draft_count=mysqli_num_rows($select_all_draft_posts);
 
-$query="SELECT * FROM posts WHERE post_status= 'draft' ";
-$select_all_draft_posts=mysqli_query($connection,$query);
-$posts_draft_count=mysqli_num_rows($select_all_draft_posts);
+$query="SELECT * FROM comments WHERE comment_status= 'unapproved' ";
+$unapproved_comment=mysqli_query($connection,$query);
+$unapproved_comment_count=mysqli_num_rows($unapproved_comment);
 
-$query="SELECT * FROM posts WHERE post_status= 'draft' ";
-$select_all_draft_posts=mysqli_query($connection,$query);
-$posts_draft_count=mysqli_num_rows($select_all_draft_posts);
+$query="SELECT * FROM users WHERE user_role= 'subscriber' ";
+$select_all_subscriber=mysqli_query($connection,$query);
+$subscriber_count=mysqli_num_rows($select_all_subscriber);
 
 ?>
 
 <!-- bar chart -->
 
-<div class="container">
+<div class="container-fluid">
 
   <div class="row">
 
@@ -164,10 +164,10 @@ $posts_draft_count=mysqli_num_rows($select_all_draft_posts);
 
         <?php
 
-        $element_text=['Active Posts', 'Draft Posts', 'Comments', 'Users', 'categories'];
-        $element_count=[$posts_count, $posts_draft_count, $comments_count, $users_count, $categories_count];
+        $element_text=['Active Posts', 'Draft Posts', 'Comments', 'Pending Comments', 'Users', 'Subscribers', 'categories'];
+        $element_count=[$posts_count, $posts_draft_count, $comments_count, $unapproved_comment_count, $users_count, $subscriber_count, $categories_count];
 
-        for ($i=0; $i < 5 ; $i++) {
+        for ($i=0; $i < 7 ; $i++) {
           echo "['{$element_text[$i]}' " . "," . "{$element_count[$i]}],";
         }
 

@@ -26,7 +26,6 @@
 
         if($post_status == 'published'){
 
-
           ?>
           <h1 class="page-header">
             Page Heading

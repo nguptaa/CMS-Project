@@ -28,6 +28,8 @@
       </div>
       <!-- /.row -->
 
+      <?php include "admin_widgets.php"; ?>
+
     </div>
     <!-- /.container-fluid -->
 

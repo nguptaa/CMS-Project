@@ -15,9 +15,9 @@
             <?php
             $query="SELECT * FROM posts";
             $select_all_posts=mysqli_query($connection,$query);
-            $post_counts=mysqli_num_rows($select_all_posts);
+            $posts_count=mysqli_num_rows($select_all_posts);
 
-            echo "<div class='huge'>{$post_counts}</div>";
+            echo "<div class='huge'>{$posts_count}</div>";
 
             ?>
 
@@ -73,7 +73,7 @@
             <i class="fa fa-user fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <!-- counting number of posts -->
+            <!-- counting number of users -->
             <?php
             $query="SELECT * FROM users";
             $select_all_users=mysqli_query($connection,$query);
@@ -104,7 +104,8 @@
             <i class="fa fa-list fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <!-- counting number of posts -->
+
+            <!-- counting number of categories -->
             <?php
             $query="SELECT * FROM categories";
             $select_all_categories=mysqli_query($connection,$query);
@@ -130,41 +131,68 @@
 </div>
 <!-- /.row -->
 
+<?php
+
+$query="SELECT * FROM posts WHERE post_status= 'draft' ";
+$select_all_draft_posts=mysqli_query($connection,$query);
+$posts_draft_count=mysqli_num_rows($select_all_draft_posts);
+
+$query="SELECT * FROM posts WHERE post_status= 'draft' ";
+$select_all_draft_posts=mysqli_query($connection,$query);
+$posts_draft_count=mysqli_num_rows($select_all_draft_posts);
+
+$query="SELECT * FROM posts WHERE post_status= 'draft' ";
+$select_all_draft_posts=mysqli_query($connection,$query);
+$posts_draft_count=mysqli_num_rows($select_all_draft_posts);
+
+?>
+
 <!-- bar chart -->
 
 <div class="container">
 
-<div class="row">
+  <div class="row">
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-  google.charts.load('current', {'packages':['bar']});
-  google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
 
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Year', 'Sales', 'Expenses', 'Profit'],
-      ['2014', 1000, 400, 200],
-      ['2015', 1170, 460, 250],
-      ['2016', 660, 1120, 300],
-      ['2017', 1030, 540, 350]
-    ]);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Data', 'Count'],
 
-    var options = {
-      chart: {
-        title: '',
-        subtitle: '',
-      }
-    };
+        <?php
 
-    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        $element_text=['Active Posts', 'Draft Posts', 'Comments', 'Users', 'categories'];
+        $element_count=[$posts_count, $posts_draft_count, $comments_count, $users_count, $categories_count];
 
-    chart.draw(data, google.charts.Bar.convertOptions(options));
-  }
+        for ($i=0; $i < 5 ; $i++) {
+          echo "['{$element_text[$i]}' " . "," . "{$element_count[$i]}],";
+        }
 
-  </script>
 
-  <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+        ?>
 
-</div>
+        // ['Post', 1000],
+
+      ]);
+
+      var options = {
+        chart: {
+          title: '',
+          subtitle: '',
+        }
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
+    </script>
+
+    <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+
+  </div>
 </div>

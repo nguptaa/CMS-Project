@@ -11,7 +11,7 @@ if(isset($_POST['create_user'])){
   // $user_image=$row['user_image'];
   // $post_comment_count=4;
 
-//   move_uploaded_file($post_image_temp, "../images/$post_image ");
+  //   move_uploaded_file($post_image_temp, "../images/$post_image ");
 
   $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password ) ";
   $query .= "VALUES('$user_firstname', '$user_lastname', '$user_role', '$username', '$user_email', '$user_password' ) ";
@@ -20,9 +20,12 @@ if(isset($_POST['create_user'])){
   if(!$create_user_query){
     die("QUERY FAILED" . mysqli_error($connection));
   }
+
+  echo "User Created: " . " " . "<button type='button' class='btn btn-primary'><a href='users.php'>View Users</a></button> ";
+
 }
 
- ?>
+?>
 
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -40,8 +43,8 @@ if(isset($_POST['create_user'])){
     <select class="" name="user_role">
 
       <option value="subscriber">Select Options</option>
-       <option value="admin">Admin</option>
-       <option value="subscriber">Subscriber</option>
+      <option value="admin">Admin</option>
+      <option value="subscriber">Subscriber</option>
 
     </select>
   </div>
@@ -49,27 +52,27 @@ if(isset($_POST['create_user'])){
 
 
   <!-- <div class="form-group">
-    <label for="post_status">Post Images</label>
-    <input type="file" name="image">
-  </div> -->
+  <label for="post_status">Post Images</label>
+  <input type="file" name="image">
+</div> -->
 
-  <div class="form-group">
-    <label for="post_tags">Username</label>
-    <input type="text" name="username" class="form-control">
-  </div>
+<div class="form-group">
+  <label for="post_tags">Username</label>
+  <input type="text" name="username" class="form-control">
+</div>
 
-  <div class="form-group">
-    <label for="post_content">Email</label>
-    <input type="email" name="user_email" class="form-control">
-  </div>
+<div class="form-group">
+  <label for="post_content">Email</label>
+  <input type="email" name="user_email" class="form-control">
+</div>
 
-  <div class="form-group">
-    <label for="post_content">Password</label>
-    <input type="password" name="user_password" class="form-control">
-  </div>
+<div class="form-group">
+  <label for="post_content">Password</label>
+  <input type="password" name="user_password" class="form-control">
+</div>
 
-  <div class="form-group">
-    <input class="btn btn-primary" type="submit" name="create_user" value="Add User">
-  </div>
+<div class="form-group">
+  <input class="btn btn-primary" type="submit" name="create_user" value="Add User">
+</div>
 
 </form>

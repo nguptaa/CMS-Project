@@ -182,8 +182,7 @@ $subscriber_count=mysqli_num_rows($select_all_subscriber);
         chart: {
           title: '',
           subtitle: '',
-        },
-        colors: ['#1C77B9', '', '#00C15E', '', '#FBAC3D', '', '#EC3E41']
+        }
       };
 
       var chart = new google.charts.Bar(document.getElementById('columnchart_material'));

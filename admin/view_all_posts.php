@@ -1,6 +1,34 @@
+<?php
+
+
+
+ ?>
+
+<form action="" method="post">
+
 <table class="table table-bordered table-hover">
   <thead>
+
+    <div id="bulkOptionContainer" class="col-xs-4">
+
+      <select class="form-control" name="" id="">
+        <option value="">Select Options</option>
+        <option value="">Publish</option>
+        <option value="">Draft</option>
+        <option value="">Delete</option>
+
+      </select>
+
+    </div>
+
+    <div class="col-xs-4">
+      <input type="submit" name="submit" value="Apply" class="btn btn-success">
+      <a class="btn btn-primary" href="add_posts.php">Add New</a>
+
+    </div>
+
     <tr>
+      <th><input type="checkbox" id="checkBoxes"></th>
       <th>ID</th>
       <th>Author</th>
       <th>Title</th>
@@ -34,6 +62,12 @@
 
 
       echo "<tr>";
+      ?>
+
+      <td><input type='checkbox' class='checkBoxes' name='checkBoxArray[]' value='<?php echo $post_id; ?>'></td>"
+
+      <?php
+
       echo "<td>$post_id</td>";
       echo "<td>$post_author</td>";
       echo "<td>$post_title</td>";
@@ -47,7 +81,6 @@
       }
 
       echo "<td>$cat_title</td>";
-
       echo "<td>$post_status</td>";
       echo "<td><img width='100' src='../Images/$post_image' alt='image'/></td>";
       echo "<td>$post_content</td>";

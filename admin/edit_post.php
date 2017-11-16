@@ -50,7 +50,7 @@ if(isset($_POST['update_post'])){
     die("QUERY FAILED" . mysqli_error($connection));
   }
 
-  echo "<p>Post Updated. <a href='posts.php'>View Posts</a></p>";
+  echo "<p class='bg-success'>Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Posts</a></p>";
 
 }
 ?>

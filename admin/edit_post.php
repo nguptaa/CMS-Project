@@ -34,28 +34,26 @@ if(isset($_POST['update_post'])){
 
   move_uploaded_file($post_image_temp, "../Images/$post_image ");
 
+  $query = "UPDATE posts SET ";
+  $query .= "post_title='{$post_title}', ";
+  $query .= "post_category_id='{$post_category_id}', ";
+  $query .= "post_date=now(), ";
+  $query .= "post_author='{$post_author}', ";
+  $query .= "post_status='{$post_status}', ";
+  $query .= "post_tags='{$post_tags}', ";
+  $query .= "post_content='{$post_content}', ";
+  $query .= "post_image='{$post_image}' ";
+  $query .= "WHERE post_id={$the_post_id} ";
+
+  $update_post = mysqli_query($connection,$query);
+  if(!$update_post){
+    die("QUERY FAILED" . mysqli_error($connection));
+  }
+
+  echo "<p>Post Updated. <a href='posts.php'>View Posts</a></p>";
 
 }
-
-$query = "UPDATE posts SET ";
-$query .= "post_title='{$post_title}', ";
-$query .= "post_category_id='{$post_category_id}', ";
-$query .= "post_date=now(), ";
-$query .= "post_author='{$post_author}', ";
-$query .= "post_status='{$post_status}', ";
-$query .= "post_tags='{$post_tags}', ";
-$query .= "post_content='{$post_content}', ";
-$query .= "post_image='{$post_image}' ";
-$query .= "WHERE post_id={$the_post_id} ";
-
-$update_post = mysqli_query($connection,$query);
-if(!$update_post){
-  die("QUERY FAILED" . mysqli_error($connection));
-
-}
-
 ?>
-
 
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -104,7 +102,7 @@ if(!$update_post){
 
       }
 
-       ?>
+      ?>
 
     </select>
   </div>

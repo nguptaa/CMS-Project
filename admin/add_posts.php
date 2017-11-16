@@ -1,5 +1,5 @@
-<?php
 
+<?php
 if(isset($_POST['create_post'])){
 
   $post_title=$_POST['title'];
@@ -24,6 +24,10 @@ if(isset($_POST['create_post'])){
   if(!$create_post_query){
     die("QUERY FAILED" . mysqli_error($connection));
   }
+
+  $the_post_id=mysqli_insert_id($connection);
+  echo "<p class='bg-success'>Post Added. <a href='../post.php?p_id={$the_post_id}'>View Posts</a></p>";
+
 }
 
  ?>
@@ -49,7 +53,6 @@ if(isset($_POST['create_post'])){
         $cat_id=$row['cat_id'];
         $cat_title=$row['cat_title'];
 
-        echo "<option value='$cat_id'>Choose Category</option>";
         echo "<option value='$cat_id'>$cat_title</option>";
 
       }

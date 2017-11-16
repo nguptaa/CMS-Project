@@ -40,8 +40,12 @@ if(isset($_POST['checkBoxArray'])){
 
   <table class="table table-bordered table-hover">
     <thead>
-
-      <div id="bulkOptionContainer" class="col-xs-4">
+      <div id="bulkOptionContainer" class="col-xs-4 form-group">
+        <style media="screen">
+          #bulkOptionContainer{
+            padding: 0px;
+          }
+        </style>
 
         <select class="form-control" name="bulk_options" id="">
           <option value="">Select Options</option>
@@ -54,7 +58,7 @@ if(isset($_POST['checkBoxArray'])){
       </div>
       <div class="col-xs-4">
         <input type="submit" name="submit" value="Apply" class="btn btn-success">
-        <a class="btn btn-primary" href="posts.php?source=add_posts">Add New</a>
+        <a class="btn btn-primary" href="posts.php?source=add_posts">Add New Post</a>
 
       </div>
 

@@ -49,6 +49,7 @@ if(isset($_POST['create_post'])){
         $cat_id=$row['cat_id'];
         $cat_title=$row['cat_title'];
 
+        echo "<option value='$cat_id'>Choose Category</option>";
         echo "<option value='$cat_id'>$cat_title</option>";
 
       }
@@ -62,8 +63,12 @@ if(isset($_POST['create_post'])){
   </div>
 
   <div class="form-group">
-    <label for="post_status">Post Status</label>
-    <input type="text" name="post_status" class="form-control">
+    <select class="" name="post_status">
+      <option value="draft">Post Status</option>
+      <option value="published">Published</option>
+      <option value="draft">Draft</option>
+    </select>
+
   </div>
 
   <div class="form-group">

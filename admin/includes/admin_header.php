@@ -10,8 +10,6 @@ if(!isset($_SESSION['user_role'])){
 
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -45,10 +43,6 @@ if(!isset($_SESSION['user_role'])){
 
   <!-- google charts -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <!-- WYSIWYG editor -->
-  <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script> -->
 
 
 </head>

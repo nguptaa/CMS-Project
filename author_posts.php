@@ -31,7 +31,6 @@
         ?>
         <h1 class="page-header">
           All posts by <?php echo $post_author ?>
-          <small>Secondary Text</small>
         </h1>
 
         <!-- First Blog Post -->
@@ -39,7 +38,7 @@
           <a href="#"><?php echo $post_title ?></a>
         </h2>
         <p class="lead">
-          All posts by <?php echo $post_author ?>
+          <a><?php echo $post_author ?></a>
         </p>
         <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
         <hr>

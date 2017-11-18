@@ -23,6 +23,7 @@ if(isset($_POST['submit'])){
 
     $row=mysqli_fetch_array($select_randSalt_query);
     $salt = $row['randSalt'];
+    $password = crypt($password,$salt);
 
     $query="INSERT INTO users(username, user_email, user_password, user_role) ";
     $query .="VALUES('{$username}', '{$email}', '{$password}', 'subscriber' )";
@@ -30,18 +31,19 @@ if(isset($_POST['submit'])){
     if(!$register_user_query){
       die("Query Failed" . mysqli_error($connection) . ' ' . mysqli_errno($connection));
     }
+    $message='Your form has been submitted';
 
-    $message="Your registration has been submitted";
+  }
+
+
+  else {
+    $message="The field cannot be left empty";
   }
 
 }
-else {
-  echo "<script>alert('The field cannot be left empty')</script>";
+else{
+  $message="";
 }
-
-
-
-
 
 ?>
 
@@ -59,6 +61,8 @@ else {
           <div class="form-wrap">
             <h1>Register</h1>
             <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+              <h6 class="text-center"><?php echo $message; ?></h6>
+
               <div class="form-group">
                 <label for="username" class="sr-only">username</label>
                 <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username">

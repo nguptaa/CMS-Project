@@ -6,6 +6,10 @@
 
 <!-- WYSIWYG editor -->
 <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
+
+<!-- google charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript" src="js/script.js"></script>
 
 </body>

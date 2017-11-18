@@ -13,7 +13,7 @@
     <!-- Blog Entries Column -->
     <div class="col-md-8">
       <?php
-      $query="SELECT * FROM posts";
+      $query="SELECT * FROM posts ORDER BY post_id DESC";
       $select_all_posts_query=mysqli_query($connection,$query);
       while($row=mysqli_fetch_assoc($select_all_posts_query)){
         $post_id=$row['post_id'];
@@ -42,7 +42,7 @@
           <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
           <hr>
           <a href="post.php?p_id=<?php echo $post_id; ?>">
-          <img class="img-responsive" src="Images/<?php echo $post_image ?>" alt="">
+            <img class="img-responsive" src="Images/<?php echo $post_image ?>" alt="">
           </a>
           <hr>
           <p><?php echo $post_content ?></p>

@@ -19,7 +19,7 @@
         $the_post_author = $_GET['author'];
       }
 
-      $query="SELECT * FROM posts WHERE post_author = $the_post_author ";
+      $query="SELECT * FROM posts WHERE post_author = '{$the_post_author}' ";
       $select_all_posts_query=mysqli_query($connection,$query);
       while($row=mysqli_fetch_assoc($select_all_posts_query)){
         $post_title=$row['post_title'];
@@ -30,7 +30,7 @@
 
         ?>
         <h1 class="page-header">
-          Page Heading
+          All posts by <?php echo $post_author ?>
           <small>Secondary Text</small>
         </h1>
 
@@ -39,7 +39,7 @@
           <a href="#"><?php echo $post_title ?></a>
         </h2>
         <p class="lead">
-          by <a href="index.php"><?php echo $post_author ?></a>
+          All posts by <?php echo $post_author ?>
         </p>
         <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
         <hr>

@@ -1,3 +1,9 @@
+<?php  include "includes/db.php"; ?>
+<?php  include "includes/header.php"; ?>
+
+
+<!-- Navigation -->
+
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,12 +51,53 @@
         <li>
           <a href="../registration.php"><i class="fa fa-user-plus" style="margin-right:4px;"></i>Sign Up</a>
         </li>
-        <li>
-          <a href="loginpage.php"><i class="fa fa-user" style="margin-right:4px;"></i>Log In</a>
-        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container -->
 </nav>
+
+
+<!-- login -->
+<div class="container">
+
+  <section id="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-wrap">
+            <h4>Login</h4>
+            <hr>
+            <form action="includes/login.php" method="post">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" placeholder="Enter Password">
+                <!-- <span class="input-group-btn">
+                <button name="login" class="btn btn-primary" type="submit">Submit</button> -->
+
+                <!-- </span> -->
+              </div>
+              <div class="form-group">
+                <input type="submit" name="login" id="btn-login" class="btn btn-lg btn-success" value="Login">
+
+              </div>
+            </form>
+          </div>
+        </div> <!-- /.col-xs-12 -->
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+  </section>
+
+
+
+
+  <hr>
+
+
+
+  <?php include "includes/footer.php";?>

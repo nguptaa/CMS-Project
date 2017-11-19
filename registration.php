@@ -1,5 +1,8 @@
 <?php  include "includes/db.php"; ?>
 <?php  include "includes/header.php"; ?>
+<link rel="stylesheet" href="css/content.css">
+
+
 
 <?php
 
@@ -76,21 +79,6 @@ else{
 
         ?>
 
-        <li>
-          <a href="admin">ADMIN</a>
-        </li>
-
-        <?php
-
-        if(!isset($_SESSION['user_role'])){
-          if(isset($_GET['p_id'])){
-            $the_post_id= $_GET['p_id'];
-            echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-          }
-        }
-
-        ?>
-
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -103,46 +91,47 @@ else{
   <!-- /.container -->
 </nav>
 
-
 <!-- Page Content -->
-<div class="container">
-
-  <section id="login">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <div class="form-wrap">
+<section id="login">
+  <div id="content" class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="form-wrap">
+          <div class="jumbotron" style="margin-top:40px;">
             <h1>Register</h1><hr>
             <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
-              <h6 class="text-center text-danger"><?php echo $message; ?></h6>
+              <h6 class="text-center text-success"><?php echo $message; ?></h6>
 
               <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" required>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com" required>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="key" class="form-control" placeholder="Password">
+                <input type="password" name="password" id="key" class="form-control" placeholder="Password" required>
               </div>
               <div class="form-group">
                 <input type="submit" name="submit" id="btn-login" class="btn btn-lg btn-success" value="Register">
-
               </div>
             </form>
-
           </div>
-        </div> <!-- /.col-xs-12 -->
-      </div> <!-- /.row -->
-    </div> <!-- /.container -->
-  </section>
+        </div>
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
 
 
-  <hr>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
+</body>
 
-  <?php include "includes/footer.php";?>
+</html>

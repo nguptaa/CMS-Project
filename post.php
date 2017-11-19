@@ -6,7 +6,7 @@
 <?php include "includes/navigation.php" ?>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container" align="justify">
 
   <div class="row">
 
@@ -33,17 +33,15 @@
           $post_content=$row['post_content'];
 
           ?>
-          <h1 class="page-header">
-            Page Heading
-            <small>Secondary Text</small>
-          </h1>
 
           <!-- First Blog Post -->
           <h2>
             <a href="#"><?php echo $post_title ?></a>
           </h2>
           <p class="lead">
-            by <a href="index.php"><?php echo $post_author ?></a>
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/64x64" alt="" style="margin-right:5px">
+            </a> by <a href="index.php"><?php echo $post_author ?></a>
           </p>
           <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
           <hr>
@@ -153,9 +151,41 @@
 
     </div>
 
+    <div class="col-md-4">
 
-    <!-- Blog Sidebar Widgets Column -->
-    <?php include "includes/sidebar.php" ?>
+    <!-- Blog Categories Well -->
+    <div class="well">
+
+      <?php
+      $query="SELECT * FROM categories";
+      $select_categories_sidebar=mysqli_query($connection,$query);
+
+      ?>
+
+      <h4>Blog Categories</h4>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-unstyled">
+            <?php
+            while($row=mysqli_fetch_assoc($select_categories_sidebar)){
+              $cat_title=$row['cat_title'];
+              $cat_id=$row['cat_id'];
+
+              echo "<li><a href='./category_page.php?category=$cat_id'>
+              {$cat_title}
+              </a></li>";
+            }
+
+            ?>
+
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+
 
 
   </div>

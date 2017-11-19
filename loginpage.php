@@ -1,5 +1,6 @@
 <?php  include "includes/db.php"; ?>
 <?php  include "includes/header.php"; ?>
+<link rel="stylesheet" href="css/content.css">
 
 
 <!-- Navigation -->
@@ -31,21 +32,6 @@
 
         ?>
 
-        <li>
-          <a href="admin">ADMIN</a>
-        </li>
-
-        <?php
-
-        if(!isset($_SESSION['user_role'])){
-          if(isset($_GET['p_id'])){
-            $the_post_id= $_GET['p_id'];
-            echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-          }
-        }
-
-        ?>
-
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -60,44 +46,33 @@
 
 
 <!-- login -->
-<div class="container">
+<section id="login">
+  <div id="content" class="container">
 
-  <section id="login">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <div class="form-wrap">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="form-wrap">
+          <div class="jumbotron">
             <h4>Login</h4>
             <hr>
             <form action="includes/login.php" method="post">
               <div class="form-group">
                 <label for="username">Username</label>
-                <input name="username" type="text" class="form-control" placeholder="Enter Username">
+                <input name="username" type="text" class="form-control" placeholder="Enter Username" required>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input name="password" type="password" class="form-control" placeholder="Enter Password">
-                <!-- <span class="input-group-btn">
-                <button name="login" class="btn btn-primary" type="submit">Submit</button> -->
-
-                <!-- </span> -->
+                <input name="password" type="password" class="form-control" placeholder="Enter Password" required>
               </div>
               <div class="form-group">
                 <input type="submit" name="login" id="btn-login" class="btn btn-lg btn-success" value="Login">
-
               </div>
             </form>
           </div>
         </div> <!-- /.col-xs-12 -->
       </div> <!-- /.row -->
     </div> <!-- /.container -->
-  </section>
+  </div>
+</section>
 
-
-
-
-  <hr>
-
-
-
-  <?php include "includes/footer.php";?>
+<?php include "includes/footer.php";?>

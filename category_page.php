@@ -1,6 +1,7 @@
 <?php include "includes/db.php" ?>
 
 <?php include "includes/header.php" ?>
+<link rel="stylesheet" href="css/content.css">
 
 <!-- Navigation -->
 <?php include "includes/navigation.php" ?>
@@ -11,7 +12,7 @@
   <div class="row">
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div id="content" class="col-lg-12">
       <?php
 
       if(isset($_GET['category'])){
@@ -30,39 +31,33 @@
         $post_content=substr($row['post_content'],0,100);
 
         ?>
-        <h1 class="page-header">
-          Page Heading
-          <small>Secondary Text</small>
-        </h1>
 
         <!-- First Blog Post -->
-        <h2>
-          <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
-        </h2>
-        <p class="lead">
-          by <a href="index.php"><?php echo $post_author ?></a>
-        </p>
-        <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
-        <hr>
-        <img class="img-responsive" src="Images/<?php echo $post_image ?>" alt="">
-        <hr>
-        <p><?php echo $post_content ?></p>
-        <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <div class="jumbotron">
 
-        <hr>
 
+          <h2>
+            <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
+          </h2>
+          <p class="lead">
+            by <a href="index.php"><?php echo $post_author ?></a>
+          </p>
+          <p><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on " . $post_date ?></p>
+
+          <img class="img-responsive" src="Images/<?php echo $post_image ?>" alt="">
+
+          <p><?php echo $post_content ?></p>
+          <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+          <hr>
+        </div>
 
         <?php
       }
 
       ?>
 
-
-
     </div>
-
-    <!-- Blog Sidebar Widgets Column -->
-    <?php include "includes/sidebar.php" ?>
 
   </div>
   <!-- /.row -->

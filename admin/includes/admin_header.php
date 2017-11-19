@@ -23,7 +23,10 @@ if(!isset($_SESSION['user_role'])){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>CMS-ADMIN</title>
+  <title>NITRvoice-ADMIN Panel</title>
+
+  <!-- favicon -->
+  <link rel="icon" type="image/gif" href="../Images/nitrlogo.png" />
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +35,7 @@ if(!isset($_SESSION['user_role'])){
   <link href="css/sb-admin.css" rel="stylesheet">
 
   <!-- fontawesome -->
-  <script src="js/font-awesome.js"></script>
+  <script src="https://use.fontawesome.com/4422dfec7e.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

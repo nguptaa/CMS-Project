@@ -13,10 +13,24 @@
       <!-- Page Heading -->
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header">
-            Welcome to admin
-            <small><?php echo $_SESSION['username'] ?></small>
-          </h1>
+          <?php
+          if($_SESSION['user_role']=="admin"){
+            ?>
+            <h1 class="page-header">
+              Welcome to admin panel
+              <small><?php echo $_SESSION['username'] ?></small>
+            </h1>
+
+          <?php }else {
+            ?>
+            <h1 class="page-header">
+              Welcome to subscriber panel
+              <small><?php echo $_SESSION['username'] ?></small>
+            </h1>
+
+          <?php } ?>
+
+
           <?php
 
           if(isset($_GET['source'])){

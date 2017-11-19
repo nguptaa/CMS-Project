@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 
 <?php
 if(isset($_POST['create_post'])){
@@ -65,6 +66,9 @@ if(isset($_POST['create_post'])){
     <input type="text" name="author" class="form-control">
   </div>
 
+  <?php
+  if($_SESSION['user_role']=="admin"){
+    ?>
   <div class="form-group">
     <select class="" name="post_status">
       <option value="draft">Post Status</option>
@@ -73,6 +77,17 @@ if(isset($_POST['create_post'])){
     </select>
 
   </div>
+<?php }
+else{
+  ?>
+  <div class="form-group">
+    <select class="" name="post_status">
+      <option value="draft">Post Status</option>
+      <option value="draft">Draft</option>
+    </select>
+
+  </div>
+<?php } ?>
 
   <div class="form-group">
     <label for="post_status">Post Images</label>

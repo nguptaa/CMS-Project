@@ -8,49 +8,63 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="./index.php">CMS Front</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <?php
-        $query="SELECT * FROM categories";
-        $select_all_categories_query=mysqli_query($connection,$query);
-        while($row=mysqli_fetch_assoc($select_all_categories_query)){
-          $cat_title=$row['cat_title'];
-          echo "<li><a href='#''>
-          {$cat_title}
-          </a></li>";
-        }
 
-        ?>
+      <a class="navbar-brand" href="./index.php" style="color: white;">
+        <span><img src="../Images/nitlogo1.png" width="25" height="25" style="float:left;margin-top:-4px;margin-right:3px;"/></span>  NITRvoice</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <?php
+          $query="SELECT * FROM categories";
+          $select_all_categories_query=mysqli_query($connection,$query);
+          while($row=mysqli_fetch_assoc($select_all_categories_query)){
+            $cat_title=$row['cat_title'];
+            $cat_id=$row['cat_id'];
 
-        <li>
-          <a href="admin">ADMIN</a>
-        </li>
-
-        <?php
-
-        if(!isset($_SESSION['user_role'])){
-          if(isset($_GET['p_id'])){
-            $the_post_id= $_GET['p_id'];
-            echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
+            echo "<li><a href='./category_page.php?category=$cat_id'>
+            {$cat_title}
+            </a></li>";
           }
-        }
+          ?>
 
-        ?>
+          <?php
 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="../registration.php"><i class="fa fa-user-plus" style="margin-right:4px;"></i>Sign Up</a>
-        </li>
-        <li>
-          <a href="loginpage.php"><i class="fa fa-user" style="margin-right:4px;"></i>Log In</a>
-        </li>
-      </ul>
+          if(!isset($_SESSION['user_role'])){
+            if(isset($_GET['p_id'])){
+              $the_post_id= $_GET['p_id'];
+              echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
+            }
+          }
+
+          ?>
+
+        </ul>
+        <form action="search.php" method="post" class="navbar-form navbar-right">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" name="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <?php
+          if(isset($_SESSION['user_role'])){
+            $name=strtoupper($_SESSION['username']);
+            echo "<li><a href='admin'>{$name}</a></li>";
+
+          }else{
+            echo "<li><a href='loginpage.php'><i class='fa fa-user' style='margin-right:4px;'></i>Log In</a></li>";
+            echo "<li><a href='../registration.php'><i class='fa fa-user-plus' style='margin-right:4px;'></i>Sign Up</a></li>";
+          }
+          ?>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
-</nav>
+    <!-- /.container -->
+  </nav>

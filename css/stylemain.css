@@ -1,0 +1,26 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family:'Roboto',sans-serif;
+}
+
+.navbar{
+  text-transform: uppercase;
+  padding: 12px;
+  letter-spacing: 1px;
+}
+.first{
+  padding-top: 140px;
+  height: 10vh;
+  min-height: 380px;
+  background-size: cover;
+  background-image: url('../Images/sac.jpg');
+  background-position: center;
+}
+
+/*.avatar{
+  position: relative;
+  margin: auto;
+  display: block;
+  bottom: 69px;
+}*/

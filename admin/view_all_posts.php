@@ -109,12 +109,12 @@ if(isset($_POST['checkBoxArray'])){
 
     while($row=mysqli_fetch_assoc($select_categories)){
       $post_id=$row['post_id'];
-      $post_author=$row['post_author'];
-      $post_title=$row['post_title'];
+      $post_author=substr($row['post_author'],0,25);
+      $post_title=substr($row['post_title'],0,25);
       $post_category_id=$row['post_category_id'];
       $post_status=$row['post_status'];
       $post_image=$row['post_image'];
-      $post_content=$row['post_content'];
+      $post_content=substr($row['post_content'],0,50);
       $post_tags=$row['post_tags'];
       $post_comment_count=$row['post_comment_count'];
       $post_date=$row['post_date'];

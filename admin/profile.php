@@ -19,7 +19,7 @@ if(isset($_SESSION['username'])){
   }
 }
 
- ?>
+?>
 <div id="wrapper">
 
   <?php include "includes/admin_navigation.php" ?>
@@ -31,10 +31,22 @@ if(isset($_SESSION['username'])){
       <!-- Page Heading -->
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header">
-            Welcome to admin
-            <small>Author</small>
-          </h1>
+          <?php
+          if($_SESSION['user_role']=="admin"){
+            ?>
+            <h1 class="page-header">
+              Welcome to admin panel
+              <small><?php echo $_SESSION['username'] ?></small>
+            </h1>
+
+          <?php }else {
+            ?>
+            <h1 class="page-header">
+              Welcome to subscriber panel
+              <small><?php echo $_SESSION['username'] ?></small>
+            </h1>
+
+          <?php } ?>
 
           <?php
 
@@ -100,27 +112,32 @@ if(isset($_SESSION['username'])){
               <input type="text" name="user_lastname" class="form-control" value="<?php echo $user_lastname; ?>">
             </div>
 
-            <div class="form-group">
-              <select class="" name="user_role">
+            <?php
+            if($_SESSION['user_role']=="admin"){
+              ?>
 
-                <option value="subscriber"><?php echo $user_role; ?></option>
+              <div class="form-group">
+                <select class="" name="user_role">
 
-          <?php
-          if($user_role == 'admin'){
-            echo "<option value='subscriber'>subscriber</option>";
-          }
+                  <option value="subscriber"><?php echo $user_role; ?></option>
 
-          else{
-            echo "<option value='admin'>admin</option>";
-          }
+                  <?php
+                  if($user_role == 'admin'){
+                    echo "<option value='subscriber'>subscriber</option>";
+                  }
 
-           ?>
+                  else{
+                    echo "<option value='admin'>admin</option>";
+                  }
 
+                  ?>
 
-              </select>
-            </div>
+                </select>
+              </div>
 
-
+              <?php
+            }
+            ?>
 
             <!-- <div class="form-group">
             <label for="post_status">Post Images</label>
@@ -146,18 +163,18 @@ if(isset($_SESSION['username'])){
             <input class="btn btn-primary" type="submit" name="edit_user" value="Update Profile">
           </div>
 
-          </form>
+        </form>
 
 
-        </div>
       </div>
-      <!-- /.row -->
-
     </div>
-    <!-- /.container-fluid -->
+    <!-- /.row -->
 
   </div>
-  <!-- /#page-wrapper -->
+  <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->

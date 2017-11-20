@@ -8,6 +8,7 @@ html, body {
   text-transform: uppercase;
   padding: 12px;
   letter-spacing: 1px;
+
 }
 .first{
   padding-top: 140px;
@@ -19,8 +20,19 @@ html, body {
 }
 
 /*.avatar{
+  color: #EEEEEE;
   position: relative;
   margin: auto;
   display: block;
-  bottom: 69px;
+  bottom: 130px;
 }*/
+
+#hr{
+  margin-top: 50px;
+  position: relative;
+  top: 0;
+  border: 0;
+  height: 1px;
+  width: 40%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), black , rgba(0, 0, 0, 0));
+}

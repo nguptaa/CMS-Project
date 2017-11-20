@@ -22,6 +22,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/loader.css" type="text/css">
+
   <link rel="stylesheet" href="css/stylemain.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

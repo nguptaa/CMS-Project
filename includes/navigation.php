@@ -10,33 +10,33 @@
       </button>
 
       <a class="navbar-brand" href="./index.php" style="color: white;">
-        <span><img src="../Images/nitlogo1.png" width="25" height="25" style="float:left;margin-top:-4px;margin-right:3px;"/></span>  NITRvoice</a>
+        <span><img src="../Images/nitlogo1.png" width="25" height="25" style="float:left;margin-top:-4px;margin-right:3px;"/></span>NITRvoice<i class="fa fa-bullhorn"></i></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tags" style="margin-right:3px;"></i>Categories<i class="fa fa-fw fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <?php
+              $query="SELECT * FROM categories";
+              $select_all_categories_query=mysqli_query($connection,$query);
+              while($row=mysqli_fetch_assoc($select_all_categories_query)){
+                $cat_title=$row['cat_title'];
+                $cat_id=$row['cat_id'];
+
+                echo "<li><a href='./category_page.php?category=$cat_id'>$cat_title</a></li>";
+              }?>
+            </ul>
+          </li>
+
           <?php
-          $query="SELECT * FROM categories";
-          $select_all_categories_query=mysqli_query($connection,$query);
-          while($row=mysqli_fetch_assoc($select_all_categories_query)){
-            $cat_title=$row['cat_title'];
-            $cat_id=$row['cat_id'];
-
-            echo "<li><a href='./category_page.php?category=$cat_id'>
-            {$cat_title}
-            </a></li>";
-          }
-          ?>
-
-          <?php
-
-          if(!isset($_SESSION['user_role'])){
-            if(isset($_GET['p_id'])){
-              $the_post_id= $_GET['p_id'];
-              echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-            }
-          }
-
+          // if(!isset($_SESSION['user_role'])){
+          //   if(isset($_GET['p_id'])){
+          //     $the_post_id= $_GET['p_id'];
+          //     echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
+          //   }
+          // }
           ?>
 
         </ul>

@@ -23,7 +23,15 @@ if(!isset($_SESSION['user_role'])){
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <?php
+  if($_SESSION['user_role']=="admin"){
+    ?>
   <title>NITRvoice-ADMIN Panel</title>
+<?php }else{
+  ?>
+  <title>NITRvoice-SUBS Panel</title>
+
+<?php } ?>
 
   <!-- favicon -->
   <link rel="icon" type="image/gif" href="../Images/nitrlogo.png" />

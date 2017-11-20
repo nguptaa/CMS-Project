@@ -62,5 +62,5 @@
 
     <!-- /.row -->
 
-
+<hr id="hr">
     <?php include "includes/footer.php" ?>

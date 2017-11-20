@@ -4,7 +4,7 @@
       <div class="container">
         <div class="col-lg-12">
 
-            <p class="text-center">Copyright &copy; Nikhil Gupta 2017</p>
+            <p class="text-center">Copyright &copy; <a href="developer">Nikhil Gupta</a></p>
         </div>
         <!-- /.col-lg-12 -->
       </div>
@@ -20,6 +20,8 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
 
 </body>
 

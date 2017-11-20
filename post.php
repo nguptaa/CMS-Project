@@ -1,12 +1,14 @@
 <?php include "includes/db.php" ?>
 
 <?php include "includes/header.php" ?>
+<link rel="stylesheet" href="css/content.css">
+
 
 <!-- Navigation -->
 <?php include "includes/navigation.php" ?>
 
 <!-- Page Content -->
-<div class="container" align="justify">
+<div id="content" class="container" align="justify">
 
   <div class="row">
 

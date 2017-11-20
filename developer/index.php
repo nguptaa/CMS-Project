@@ -125,11 +125,10 @@
 </div>
 
 <h4 class="text-center" style="margin-bottom:20px;">Screenshots</h4>
-
-
 <?php include "includes/carousel.php"; ?>
 
-<?php include "includes/ERmodel.php"; ?>
+<!-- <h4 class="text-center" style="margin-bottom:20px;">ER Diagram</h4> -->
+
 
 
 <!-- Horizontal line -->

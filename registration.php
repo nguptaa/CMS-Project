@@ -83,58 +83,58 @@ else{
             </ul>
           </li>
         </ul>
-        
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="loginpage.php"><i class="fa fa-user" style="margin-right:4px;"></i>Log In</a>
-        </li>
-      </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="loginpage.php"><i class="fa fa-user" style="margin-right:4px;"></i>Log In</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
-</nav>
+    <!-- /.container -->
+  </nav>
 
-<!-- Page Content -->
-<section id="login">
-  <div id="content" class="container">
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <div class="form-wrap">
-          <div class="jumbotron" style="margin-top:40px;">
-            <h1>Register</h1><hr>
-            <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
-              <h6 class="text-center text-success"><?php echo $message; ?></h6>
+  <!-- Page Content -->
+  <section id="login">
+    <div id="content" class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-wrap">
+            <div class="jumbotron" style="margin-top:40px;">
+              <h1>Register</h1><hr>
+              <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+                <h6 class="text-center text-success"><?php echo $message; ?></h6>
 
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="key" class="form-control" placeholder="Password" required>
-              </div>
-              <div class="form-group">
-                <input type="submit" name="submit" id="btn-login" class="btn btn-lg btn-success" value="Register">
-              </div>
-            </form>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="key" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input type="submit" name="submit" id="btn-login" class="btn btn-lg btn-success" value="Register">
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      </div> <!-- /.col-xs-12 -->
-    </div> <!-- /.row -->
-  </div> <!-- /.container -->
-</section>
+        </div> <!-- /.col-xs-12 -->
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+  </section>
 
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 
 </body>
 

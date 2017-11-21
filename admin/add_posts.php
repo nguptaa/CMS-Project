@@ -18,6 +18,12 @@ if(isset($_POST['create_post'])){
 
   move_uploaded_file($post_image_temp, "../Images/$post_image ");
 
+  $post_title=mysqli_real_escape_string($connection,$post_title);
+  $post_author=mysqli_real_escape_string($connection,$post_author);
+  $post_tags=mysqli_real_escape_string($connection,$post_tags);
+  $post_content=mysqli_real_escape_string($connection,$post_content);
+
+
   $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) ";
   $query .= "VALUES({$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}') ";
 

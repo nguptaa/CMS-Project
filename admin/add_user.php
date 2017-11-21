@@ -8,6 +8,15 @@ if(isset($_POST['create_user'])){
   $username=$_POST['username'];
   $user_email=$_POST['user_email'];
   $user_password=$_POST['user_password'];
+
+
+  $user_firstname=mysqli_real_escape_string($connection,$user_firstname);
+  $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
+  $username=mysqli_real_escape_string($connection,$username);
+  $user_email=mysqli_real_escape_string($connection,$user_email);
+  $user_password=mysqli_real_escape_string($connection,$user_password);
+
+
   // $user_image=$row['user_image'];
   // $post_comment_count=4;
 

@@ -144,8 +144,17 @@ if(isset($_SESSION['username'])){
               </div>
 
               <?php
-            }
-            ?>
+            }else{
+              ?>
+              <div class="form-group">
+                <select class="" name="user_role">
+
+                  <option value="subscriber"><?php echo $user_role; ?></option>
+                </select>
+              </div>
+
+            <?php } ?>
+
 
             <!-- <div class="form-group">
             <label for="post_status">Post Images</label>

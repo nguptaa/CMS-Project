@@ -1,97 +1,98 @@
 <?php ob_start(); ?>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <?php
-      if($_SESSION['user_role']=="admin"){
-        ?>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <?php
+    if($_SESSION['user_role']=="admin"){
+      ?>
       <a class="navbar-brand" href="./index.php">NITRvoice Admin Panel</a>
     <?php }
 
     else{
-     ?>
-     <a class="navbar-brand" href="./index.php">NITRvoice Subscriber Panel</a>
+      ?>
+      <a class="navbar-brand" href="./index.php">NITRvoice Subscriber Panel</a>
 
-   <?php } ?>
-    </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-      <li>
-        <a href="../index.php">Home</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo strtoupper($_SESSION['username']); ?> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="./logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav side-nav">
-        <?php
-        if($_SESSION['user_role']=="admin"){
-          ?>
+    <?php } ?>
+  </div>
+  <!-- Top Menu Items -->
+  <ul class="nav navbar-right top-nav">
+    <li>
+      <a href="../index.php">Home</a>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo strtoupper($_SESSION['username']); ?> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="./logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+      <?php
+      if($_SESSION['user_role']=="admin"){
+        ?>
         <li>
           <a href="./index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
       <?php } ?>
 
-        <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
-          <ul id="posts_dropdown" class="collapse">
-            <?php
-            if($_SESSION['user_role']=="admin"){
-              ?>
+      <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="posts_dropdown" class="collapse">
+          <?php
+          if($_SESSION['user_role']=="admin"){
+            ?>
             <li>
               <a href="./posts.php">View all posts</a>
             </li>
           <?php } ?>
-            <li>
-              <a href="./posts.php?source=add_posts">Add posts</a>
-            </li>
-          </ul>
-        </li>
 
-        <?php
-        if($_SESSION['user_role']=="admin"){
-          ?>
+          <li>
+            <a href="./posts.php?source=add_posts">Add posts</a>
+          </li>
+        </ul>
+      </li>
+
+      <?php
+      if($_SESSION['user_role']=="admin"){
+        ?>
         <li>
           <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
         </li>
       <?php } ?>
 
-        <?php
-        if($_SESSION['user_role']=="admin"){
-          ?>
+      <?php
+      if($_SESSION['user_role']=="admin"){
+        ?>
         <li class="">
           <a href="./comments.php"><i class="fa fa-fw fa-file"></i> Comments</a>
         </li>
       <?php } ?>
 
-        <?php
-        if($_SESSION['user_role']=="admin"){
-          ?>
+      <?php
+      if($_SESSION['user_role']=="admin"){
+        ?>
 
         <li>
           <a href="javascript:;" data-toggle="collapse" data-target="#users_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
@@ -106,10 +107,10 @@
         </li>
 
       <?php } ?>
-        <li>
-          <a href="./profile.php"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </nav>
+      <li>
+        <a href="./profile.php"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</nav>

@@ -88,16 +88,16 @@ if(isset($_POST['edit_user'])){
 
       <option value="<?php echo $user_role; ?>"><?php echo $user_role; ?></option>
 
-<?php
-if($user_role == 'admin'){
-  echo "<option value='subscriber'>subscriber</option>";
-}
+      <?php
+      if($user_role == 'admin'){
+        echo "<option value='subscriber'>subscriber</option>";
+      }
 
-else{
-  echo "<option value='admin'>admin</option>";
-}
+      else{
+        echo "<option value='admin'>admin</option>";
+      }
 
- ?>
+      ?>
 
     </select>
   </div>

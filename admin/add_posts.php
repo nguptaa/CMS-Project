@@ -37,7 +37,7 @@ if(isset($_POST['create_post'])){
 
 }
 
- ?>
+?>
 
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -75,25 +75,25 @@ if(isset($_POST['create_post'])){
   <?php
   if($_SESSION['user_role']=="admin"){
     ?>
-  <div class="form-group">
-    <select class="" name="post_status">
-      <option value="draft">Post Status</option>
-      <option value="published">Published</option>
-      <option value="draft">Draft</option>
-    </select>
+    <div class="form-group">
+      <select class="" name="post_status">
+        <option value="draft">Post Status</option>
+        <option value="published">Published</option>
+        <option value="draft">Draft</option>
+      </select>
 
-  </div>
-<?php }
-else{
-  ?>
-  <div class="form-group">
-    <select class="" name="post_status">
-      <option value="draft">Post Status</option>
-      <option value="draft">Draft</option>
-    </select>
+    </div>
+  <?php }
+  else{
+    ?>
+    <div class="form-group">
+      <select class="" name="post_status">
+        <option value="draft">Post Status</option>
+        <option value="draft">Draft</option>
+      </select>
 
-  </div>
-<?php } ?>
+    </div>
+  <?php } ?>
 
   <div class="form-group">
     <label for="post_status">Post Images</label>

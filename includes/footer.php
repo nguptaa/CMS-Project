@@ -1,15 +1,15 @@
 <!-- Footer -->
 <footer>
-    <div class="row">
-      <div class="container">
-        <div class="col-lg-12">
+  <div class="row">
+    <div class="container">
+      <div class="col-lg-12">
 
-            <p class="text-center">Copyright &copy; <a href="developer">Nikhil Gupta</a></p>
-        </div>
-        <!-- /.col-lg-12 -->
+        <p class="text-center">Copyright &copy; <a href="developer">Nikhil Gupta</a></p>
       </div>
+      <!-- /.col-lg-12 -->
     </div>
-    <!-- /.row -->
+  </div>
+  <!-- /.row -->
 </footer>
 
 </div>
